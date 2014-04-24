@@ -5,7 +5,7 @@ from django.db import models
 from django.contrib.auth.models import User
 from django.contrib import admin
 from PIL import Image as PImage
-from share_project.settings import MEDIA_ROOT
+from django.conf import settings
 
 class Album(models.Model):
 	title = models.CharField(max_length=60)
@@ -44,7 +44,7 @@ class Image(models.Model):
 	def save(self, *args, **kwargs):
 		"""Save image dimensions"""
 		super(Image, self).save(*args, **kwargs)
-		im = PImage.open(os.path.join(MEDIA_ROOT, self.image.name))
+		im = PImage.open(os.path.join(settings.MEDIA_ROOT, self.image.name))
 		self.width, self.height = im.size
 		super(Image, self).save(*args, **kwargs)
 
