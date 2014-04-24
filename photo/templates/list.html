@@ -3,7 +3,7 @@
 {% block extra_content %}
 <div class="col-span12">
 {% for album in albums.object_list %}
-	<strong>{{ album.title }}</strong> - ({{ album.image_set.count }} images)
+<strong><a href="{% url 'photo.views.album' album.id %}">{{ album.title }}</a></strong> - ({{ album.image_set.count }} images)
 	<ul>
 		{% for img in album.images %}
 		<li><a href="{{ media_url }}{{ img.image.name }}"><img border="0" height="80" alt="{{ img.image.name }}" src="{{ media_url }}{{ img.image.name }}"/></a></li>

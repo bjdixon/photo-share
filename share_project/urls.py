@@ -8,9 +8,9 @@ urlpatterns = patterns('',
     # Examples:
     # url(r'^$', 'share_project.views.home', name='home'),
     # url(r'^blog/', include('blog.urls')),
-	url(r'^$', 'photo.views.main', name='main'),
+	url(r'^$', 'photo.views.home', name='home'),
 	url(r'^media/(?P<path>.*)$', 'django.views.static.serve', {'document_root': settings.MEDIA_ROOT}),
     url(r'^static/(?P<path>.*)$', 'django.views.static.serve', {'document_root': settings.STATIC_ROOT}),
 	url(r'^admin/', include(admin.site.urls)),
-	#url(r'^photos/', include('photo.urls')),
+	url(r'^photos/', include('photo.urls')),
 )

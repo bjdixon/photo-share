@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% block extra_content %}
+<div class="col-span12">
+	<a href="{{ backurl }}">&laquo; back</a>
+	{% if image.title %}
+	<h2>{{ image.title }}</h2>
+	{% endif %}
+	<img border="0" alt="{{ image.image.name }}" src="{{ media_url }}{{ image.image.name }}"/>
+</div>
+{% endblock %}
+
